@@ -1,0 +1,16 @@
+version: '3'
+services:
+  nfs-server:
+    image: gists/nfs-server
+    container_name: nfs-server
+    restart: always
+    ports:
+      - "2049:2049"
+    cap_add:
+      - SYS_ADMIN
+      - SETPCAP
+    environment:
+      - "NFS_DOMAIN=172.20.166.112" # The visitor IP range. localhost ip
+    privileged: true
+    volumes:
+      - /mnt/nfs:/nfs-share
