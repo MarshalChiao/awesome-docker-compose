@@ -10,7 +10,7 @@ services:
       - SYS_ADMIN
       - SETPCAP
     environment:
-      - "NFS_DOMAIN=172.20.166.112" # The visitor IP range. localhost ip
+      - "NFS_DOMAIN=*" # The visitor IP range.
     privileged: true
     volumes:
       - /mnt/nfs:/nfs-share
